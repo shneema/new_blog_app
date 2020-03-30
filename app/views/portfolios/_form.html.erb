@@ -1,0 +1,134 @@
+<div class="card w-25 mx-auto mt-5">
+  <div class="card-body">
+    <header class="mb-4"><h4 class="card-title">New Portfolio</h4></header>
+    <%= form_with(model: portfolio, local: true) do |form| %>
+      <% if portfolio.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
+
+          <ul>
+            <% portfolio.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field form-group">
+        <%= form.label :images %>
+        <%= form.file_field :images, multiple: true, class: 'form-control' %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :videos %>
+        <%= form.file_field :videos, multiple: true, class: 'form-control' %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text1 %>
+        <%= form.text_field :text1, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text2 %>
+        <%= form.text_field :text2, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text3 %>
+        <%= form.text_field :text3, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text4 %>
+        <%= form.text_field :text4, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text5 %>
+        <%= form.text_field :text5, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text6 %>
+        <%= form.text_field :text6, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text7 %>
+        <%= form.text_field :text7, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text8 %>
+        <%= form.text_field :text8, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text9 %>
+        <%= form.text_field :text9, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text10 %>
+        <%= form.text_field :text10, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text11 %>
+        <%= form.text_field :text11, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text12 %>
+        <%= form.text_field :text12, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text13 %>
+        <%= form.text_field :text13, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text14 %>
+        <%= form.text_field :text14, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text15 %>
+        <%= form.text_field :text15, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text16 %>
+        <%= form.text_field :text16, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :text17 %>
+        <%= form.text_field :text17, class: 'form-control' %><br>
+        <span>Please add $ at the end of line $ considered as end of line</span>
+      </div>  
+
+      <div class="actions form-group">
+        <%= form.submit 'Submit', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,254 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="container">
+  <p>
+    <% if @portfolio.images[0].present? %>
+      <%= link_to image_tag(@portfolio.images[0], size: '1109x500') %>
+    <% else %>
+      <%= link_to image_tag('default/wallpaper.jpg', size: '1109x500') %>
+    <% end %>
+  </p>
+  <div class="card">
+    <dir class="card-body">
+      <h6 class="text-center">You get stronger by showing up and doing the work.</h6>
+      <h6 class="text-center">And you show up when you like what you do.</h6>
+      
+      <h1> Do You Feel..? </h1>
+
+      <div class='jumbotron'>
+        <% @portfolio.text1.split('$').each do |text| %>
+          <%= text %><br><br>
+        <% end %>
+      </div>
+      
+      <hr>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <h1>We've been sold lies.. Let's be honest for a moment</h1>
+        </div>  
+        <dir class="col-lg-8">
+          <div class='jumbotron'>
+            <% @portfolio.text2.split('$').each do |text| %>
+              <%= text %><br><br>
+            <% end %>
+          </div>   
+        </dir>
+      </div>
+
+      <hr>
+      
+      <h1>Imagine If You Could..</h1>
+
+      <div class='jumbotron'>
+        <% @portfolio.text3.split('$').each do |text| %>
+          <%= text %><br><br>
+        <% end %>
+      </div>
+
+      <hr>
+
+      <h1> You Might Relate.. </h1>
+
+      <div class='jumbotron'>
+        <% @portfolio.text4.split('$').each do |text| %>
+          <%= text %><br><br>
+        <% end %>
+      </div>
+
+      <h1> A Quick Reminder.. </h1>
+
+      <div class='jumbotron'>
+        <% @portfolio.text5.split('$').each do |text| %>
+          <%= text %><br><br>
+        <% end %>
+      </div>
+
+      <h1> It Finally Hit Me.. </h1>
+
+      <div class='jumbotron'>
+        <% @portfolio.text6.split('$').each do |text| %>
+          <%= text %><br><br>
+        <% end %>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <p>
+            <% if @portfolio.images[1].present? %>
+              <%= link_to image_tag(@portfolio.images[1] , size: '520x640') %>
+            <% else %>
+              <%= link_to image_tag('default/wallpaper.jpg', size: '520x640') %>
+            <% end %>
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <h1> HEY, YOU, LET ME INTRODUCE MYSELF! </h1>
+          <div class='jumbotron'>
+            <% @portfolio.text7.split('$').each do |text| %>
+              <%= text %><br><br>
+            <% end %>
+          </div>          
+        </div>
+      </div> 
+
+      <hr>
+
+      <h1> Does It Sound Familiar? </h1>
+
+      <div class='jumbotron'>
+        <% @portfolio.text8.split('$').each do |text| %>
+          <%= text %><br><br>
+        <% end %>
+      </div>
+
+      <hr>
+
+      <h1>I want to help you to achieve YOUR goals</h1>
+      
+      <div class='jumbotron'>
+        <% @portfolio.text9.split('$').each do |text| %>
+          <%= text %><br><br>
+        <% end %>
+      </div>
+      
+      <h1>I did the hard work for you..</h1>
+
+      <div class='jumbotron'>
+        <% @portfolio.text10.split('$').each do |text| %>
+          <%= text %><br><br>
+        <% end %>
+      </div>
+
+      <h1> Our willpower generally sucks, and that's why.. </h1>
+
+      <div class='jumbotron'>
+        <% @portfolio.text11.split('$').each do |text| %>
+          <%= text %><br><br>
+        <% end %>
+      </div>
+
+      <hr>
+
+      <h2 class="text-center"> Don't Just Take My Word For It..</h2><br><br>
+
+      <div class="row">
+        <% if @portfolio.videos.present? %>
+          <% @portfolio.videos.each do |video| %>
+            <div class="col-lg-6">
+              <%= video_tag(url_for(video), style: 'width:100%; height: auto', controls: '') %>
+            </div>  
+          <% end %>
+        <% end %>
+      </div>
+
+      <hr>
+
+      <h1 class="text-center" > "Karin, What's Inside The Core Play?" </h1><br><br>
+
+      <p>
+        <% if @portfolio.images[2].present? %>
+          <%= link_to image_tag(@portfolio.images[2] , size: '1069x500') %>
+        <% else %>
+          <%= link_to image_tag('default/wallpaper.jpg', size: '1069x500') %>
+        <% end %>
+      </p>
+
+      <h2 class="text-center" >4 Week Core Strength Routine</h2><br><br>
+
+      <!-- <div class="card"> -->
+        <!-- <div class="card-body"> -->
+          <div class="row">
+            <div class="col-lg-6">
+              <% if @portfolio.images[3].present? %>
+                <%= link_to image_tag(@portfolio.images[3] , size: '500x420') %>
+              <% else %>
+                <%= link_to image_tag('default/wallpaper.jpg', size: '500x420') %>
+              <% end %>
+            </div>
+            <div class="col-lg-6">
+              <h1>WEEK ONE: THE HEAT IS ON!</h1>
+              <div class='jumbotron'>
+                <% @portfolio.text12.split('$').each do |text| %>
+                  <%= text %><br><br>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <% if @portfolio.images[4].present? %>
+                <%= link_to image_tag(@portfolio.images[4] , size: '500x420') %>
+              <% else %>
+                <%= link_to image_tag('default/wallpaper.jpg', size: '500x420') %>
+              <% end %>  
+            </div>
+            <div class="col-lg-6">
+              <h1>WEEK TWO: LET'S GET SERIOUS</h1>
+              <div class='jumbotron'>
+                <% @portfolio.text13.split('$').each do |text| %>
+                  <%= text %><br><br>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <% if @portfolio.images[5].present? %>
+                <%= link_to image_tag(@portfolio.images[5] , size: '500x420') %>
+              <% else %>
+                <%= link_to image_tag('default/wallpaper.jpg', size: '500x420') %>
+              <% end %>  
+            </div>
+            <div class="col-lg-6">
+              <h1>WEEK THREE: SOMETHING DIFFERENT</h1>
+              <div class='jumbotron'>
+                <% @portfolio.text14.split('$').each do |text| %>
+                  <%= text %><br><br>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <% if @portfolio.images[6].present? %>
+                <%= link_to image_tag(@portfolio.images[6] , size: '500x420') %>
+              <% else %>
+                <%= link_to image_tag('default/wallpaper.jpg', size: '500x420') %>
+              <% end %>
+            </div>
+            <div class="col-lg-6">
+              <h1>WEEK FOUR: BE FEARLESS</h1>
+              <div class='jumbotron'>
+                <% @portfolio.text15.split('$').each do |text| %>
+                  <%= text %><br><br>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+      <!-- </div>  -->
+
+      <hr>
+      
+      <h1>This program is for you, if:</h1>
+
+      <div class='jumbotron'>
+        <% @portfolio.text16.split('$').each do |text| %>
+          <%= text %><br><br>
+        <% end %>
+      </div>
+
+      <h1>Please, DO NOT buy this program, if:</h1>
+
+      <div class='jumbotron'>
+        <% @portfolio.text17.split('$').each do |text| %>
+          <%= text %><br><br>
+        <% end %>
+      </div>
+
+      <hr>
+
+    </div>
+  </div>
+</div>
+<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>
