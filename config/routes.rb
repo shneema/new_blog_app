@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  devise_for :users
+  # root to: 'home#index'
   resources :portfolios
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get 'homes', to: 'home#index'
+  
+  devise_scope :user do
+    root to: 'devise/sessions#new'
+  end
 end
