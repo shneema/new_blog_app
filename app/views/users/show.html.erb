@@ -1,0 +1,24 @@
+<div class="col-lg-10">
+  <div class="card mx-auto mt-5 mb-5 w-50">
+    <article class="card-body">
+    <%# link_to root_path do %>
+      <!-- <i class="fas fa-angle-left text-primary"></i> -->
+    <%# end %>
+    <%# link_to edit_user_registration_path(@user) do %>
+      <!-- <i class="fas fa-edit text-primary" aria-hidden="true"></i> -->
+    <%# end %>
+    <header class="mb-4"><h4 class="card-title">Profile Details</h4></header>
+      <p>
+        <% if @user.image.present? %>
+          <%= link_to image_tag(@user.image, class: 'imgwedth') %>
+        <% else %>
+          <%= link_to image_tag('user/us.png', class: 'imgwedth') %>
+        <% end %>
+      </p>
+
+        <strong>Name:</strong> <%= @user.full_name.titleize %> <br><br>
+
+        <strong>Email: </strong> <%= @user.email %><br><br>
+    </article>
+  </div>
+</div>

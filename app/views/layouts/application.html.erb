@@ -7,17 +7,21 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- <link href="/assets/sidenev.css" rel="stylesheet" type="text/css"/> -->
   </head>
 
   <body>
-    <%= render 'layouts/error' %>
-
-    <% if user_signed_in? %> 
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "login", new_user_session_path %>
+    <%# render 'layouts/error' %>
+    <% if user_signed_in? %>
+      <%= render 'layouts/nav' %>
     <% end %>
-
-    <%= yield %>
+    <div class="row">
+      <% if user_signed_in? && request.path == "/homes" %>
+        <div class="col-lg-2">
+          <%= render 'layouts/sidebar' %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>  
   </body>
 </html>

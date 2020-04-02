@@ -9,14 +9,14 @@ class PortfoliosController < ApplicationController
   end
 
   def new
-    @portfolio = Portfolio.new
+    @portfolio = current_user.portfolios.new
   end
 
   def edit
   end
 
   def create
-    @portfolio = Portfolio.new(portfolio_params)
+    @portfolio = current_user.portfolios.new(portfolio_params)
 
     respond_to do |format|
       if @portfolio.save
