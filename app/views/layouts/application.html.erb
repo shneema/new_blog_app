@@ -16,7 +16,9 @@
       <%= render 'layouts/nav' %>
     <% end %>
     <div class="row">
-      <% if user_signed_in? && request.path == "/homes" %>
+      <%# debugger %>
+      <% value = request.path.include? "/portfolios" %>
+      <% if user_signed_in? && !value %>
         <div class="col-lg-2">
           <%= render 'layouts/sidebar' %>
         </div>
