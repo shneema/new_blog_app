@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_135352) do
+ActiveRecord::Schema.define(version: 2020_04_06_140737) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -38,7 +38,18 @@ ActiveRecord::Schema.define(version: 2020_04_03_135352) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "portfolio_id"
+    t.index ["portfolio_id"], name: "index_comments_on_portfolio_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "portfolio_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["portfolio_id"], name: "index_likes_on_portfolio_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -62,6 +73,24 @@ ActiveRecord::Schema.define(version: 2020_04_03_135352) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.string "heading"
+    t.string "sub_head1"
+    t.string "sub_head2"
+    t.string "sub_head3"
+    t.string "sub_head4"
+    t.string "sub_head5"
+    t.string "sub_head6"
+    t.string "sub_head7"
+    t.string "sub_head8"
+    t.string "sub_head9"
+    t.string "sub_head10"
+    t.string "sub_head11"
+    t.string "sub_head12"
+    t.string "sub_head13"
+    t.string "sub_head14"
+    t.string "sub_head15"
+    t.string "sub_head16"
+    t.string "sub_head17"
     t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
@@ -80,6 +109,9 @@ ActiveRecord::Schema.define(version: 2020_04_03_135352) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "portfolios"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "portfolios"
+  add_foreign_key "likes", "users"
   add_foreign_key "portfolios", "users"
 end

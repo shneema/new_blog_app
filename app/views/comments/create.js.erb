@@ -1,0 +1,3 @@
+$("#comment_form a").show()
+$("#comment_form form").remove()
+$("#jmb").append("<%= j render partial: 'comments/comment', locals: { comment: @comment } %>")

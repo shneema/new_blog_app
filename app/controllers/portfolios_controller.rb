@@ -6,7 +6,7 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @comments = Comment.all
+    @comments = @portfolio.comments
   end
 
   def new
@@ -57,6 +57,6 @@ class PortfoliosController < ApplicationController
   end
 
   def portfolio_params
-    params.require(:portfolio).permit(:text1, :text2, :text3, :text4, :text5, :text6, :text7, :text8, :text9, :text10, :text11, :text12, :text13, :text14, :text15, :text16, :text17, images: [], videos: [])
+    params.require(:portfolio).permit(:text1, :text2, :text3, :text4, :text5, :text6, :text7, :text8, :text9, :text10, :text11, :text12, :text13, :text14, :text15, :text16, :text17, :heading, :sub_head1, :sub_head2, :sub_head3, :sub_head4, :sub_head5, :sub_head6, :sub_head7, :sub_head8, :sub_head9, :sub_head10, :sub_head11, :sub_head12, :sub_head13, :sub_head14, :sub_head15, :sub_head16, :sub_head17, images: [], videos: [])
   end
 end

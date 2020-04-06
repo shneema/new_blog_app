@@ -1,0 +1,6 @@
+<% if Like.liked_or_not(current_user.id, portfolio.id).exists? %>
+  <%= link_to 'dis_like', dislike_likes_path(portfolio_id: portfolio.id), remote: true %> 
+<% else %>
+  <%= link_to 'like', likes_path(portfolio_id: portfolio.id), method: :post, remote: true %>
+<% end %>
+<span id="likecount"><%= @portfolio.likes.size %></span>

@@ -1,5 +1,18 @@
 <!-- <p id="notice"><%= notice %></p> -->
 <div class="container">
+  <%# if alert.present? %>
+    <!-- <div class="alert alert-info text-danger">
+      <strong><%= alert %></strong>
+    </div> -->
+  <%# end %>
+  <h1 class="mt-3 mb-3"><%= @portfolio.heading %></h1>
+
+  <p>
+    <%= link_to image_tag(@portfolio.user.image, class: 'commentimgwedth') %>
+    <%= @portfolio.user.full_name %><br>
+    <%= @portfolio.created_at %><br>
+  </p>
+
   <p>
     <% if @portfolio.images[0].present? %>
       <%= link_to image_tag(@portfolio.images[0], size: '1109x500') %>
@@ -7,12 +20,13 @@
       <%= link_to image_tag('default/wallpaper.jpg', size: '1109x500') %>
     <% end %>
   </p>
+  
   <div class="card">
     <div class="card-body">
       <h6 class="text-center">You get stronger by showing up and doing the work.</h6>
       <h6 class="text-center">And you show up when you like what you do.</h6>
       
-      <h1> Do You Feel..? </h1>
+      <h1><%= @portfolio.sub_head1 %></h1>
 
       <div class='jumbotron'>
         <% @portfolio.text1.split('$').each do |text| %>
@@ -24,7 +38,7 @@
 
       <div class="row">
         <div class="col-lg-4">
-          <h1>We've been sold lies.. Let's be honest for a moment</h1>
+          <h1><%= @portfolio.sub_head2 %></h1>
         </div>  
         <dir class="col-lg-8">
           <div class='jumbotron'>
@@ -37,7 +51,7 @@
 
       <hr>
       
-      <h1>Imagine If You Could..</h1>
+      <h1><%= @portfolio.sub_head3 %></h1>
 
       <div class='jumbotron'>
         <% @portfolio.text3.split('$').each do |text| %>
@@ -47,7 +61,7 @@
 
       <hr>
 
-      <h1> You Might Relate.. </h1>
+      <h1> <%= @portfolio.sub_head4 %> </h1>
 
       <div class='jumbotron'>
         <% @portfolio.text4.split('$').each do |text| %>
@@ -55,7 +69,7 @@
         <% end %>
       </div>
 
-      <h1> A Quick Reminder.. </h1>
+      <h1> <%= @portfolio.sub_head5 %> </h1>
 
       <div class='jumbotron'>
         <% @portfolio.text5.split('$').each do |text| %>
@@ -63,7 +77,7 @@
         <% end %>
       </div>
 
-      <h1> It Finally Hit Me.. </h1>
+      <h1> <%= @portfolio.sub_head6 %> </h1>
 
       <div class='jumbotron'>
         <% @portfolio.text6.split('$').each do |text| %>
@@ -84,7 +98,7 @@
           </p>
         </div>
         <div class="col-lg-6">
-          <h1> HEY, YOU, LET ME INTRODUCE MYSELF! </h1>
+          <h1> <%= @portfolio.sub_head7 %> </h1>
           <div class='jumbotron'>
             <% @portfolio.text7.split('$').each do |text| %>
               <%= text %><br><br>
@@ -95,7 +109,7 @@
 
       <hr>
 
-      <h1> Does It Sound Familiar? </h1>
+      <h1> <%= @portfolio.sub_head8 %> </h1>
 
       <div class='jumbotron'>
         <% @portfolio.text8.split('$').each do |text| %>
@@ -105,7 +119,7 @@
 
       <hr>
 
-      <h1>I want to help you to achieve YOUR goals</h1>
+      <h1><%= @portfolio.sub_head9 %></h1>
       
       <div class='jumbotron'>
         <% @portfolio.text9.split('$').each do |text| %>
@@ -113,7 +127,7 @@
         <% end %>
       </div>
       
-      <h1>I did the hard work for you..</h1>
+      <h1><%= @portfolio.sub_head10 %></h1>
 
       <div class='jumbotron'>
         <% @portfolio.text10.split('$').each do |text| %>
@@ -121,7 +135,7 @@
         <% end %>
       </div>
 
-      <h1> Our willpower generally sucks, and that's why.. </h1>
+      <h1><%= @portfolio.sub_head11 %></h1>
 
       <div class='jumbotron'>
         <% @portfolio.text11.split('$').each do |text| %>
@@ -168,7 +182,7 @@
               <% end %>
             </div>
             <div class="col-lg-6">
-              <h1>WEEK ONE: THE HEAT IS ON!</h1>
+              <h1><%= @portfolio.sub_head12 %></h1>
               <div class='jumbotron'>
                 <% @portfolio.text12.split('$').each do |text| %>
                   <%= text %><br><br>
@@ -184,7 +198,7 @@
               <% end %>  
             </div>
             <div class="col-lg-6">
-              <h1>WEEK TWO: LET'S GET SERIOUS</h1>
+              <h1><%= @portfolio.sub_head13 %></h1>
               <div class='jumbotron'>
                 <% @portfolio.text13.split('$').each do |text| %>
                   <%= text %><br><br>
@@ -200,7 +214,7 @@
               <% end %>  
             </div>
             <div class="col-lg-6">
-              <h1>WEEK THREE: SOMETHING DIFFERENT</h1>
+              <h1><%= @portfolio.sub_head14 %></h1>
               <div class='jumbotron'>
                 <% @portfolio.text14.split('$').each do |text| %>
                   <%= text %><br><br>
@@ -216,7 +230,7 @@
               <% end %>
             </div>
             <div class="col-lg-6">
-              <h1>WEEK FOUR: BE FEARLESS</h1>
+              <h1><%= @portfolio.sub_head15 %></h1>
               <div class='jumbotron'>
                 <% @portfolio.text15.split('$').each do |text| %>
                   <%= text %><br><br>
@@ -229,7 +243,7 @@
 
       <hr>
       
-      <h1>This program is for you, if:</h1>
+      <h1><%= @portfolio.sub_head16 %></h1>
 
       <div class='jumbotron'>
         <% @portfolio.text16.split('$').each do |text| %>
@@ -237,7 +251,7 @@
         <% end %>
       </div>
 
-      <h1>Please, DO NOT buy this program, if:</h1>
+      <h1><%= @portfolio.sub_head17 %></h1>
 
       <div class='jumbotron'>
         <% @portfolio.text17.split('$').each do |text| %>
@@ -248,26 +262,21 @@
       <hr>
       <% if @comments.present? %>
         <h1>Comments</h1>
-        <div class="jumbotron">
-          <% @comments.each do |comment| %>
-            <%= link_to image_tag(comment.user.image, class: 'commentimgwedth') %>
-            <%= comment.user.full_name %><br>
-            <%= comment.created_at %><br>
-            <div class="well" style="color: blue">
-              <%= comment.comment %>
-            </div>  
-            <br><br>
-          <% end %>
+        <div class="jumbotron" id="jmb">
+          <%= render partial: 'comments/comment', collection: @comments %>
         </div>
-      <% else %>
-        <div class="well">
+      <%# else %>
+        <!-- <div class="well">
           Not Commented Yet!
-        </div>  
+        </div> -->  
       <% end %>
 
       <div id="comment_form">
         <%= link_to 'comment', new_comment_path(portfolio_id: @portfolio.id), remote: true %>
       </div>
+      <div id="lik_dis">
+        <%= render 'likes/like_dislike', portfolio: @portfolio %>
+      </div>  
     </div> 
   </div>
 </div>
