@@ -1,0 +1,7 @@
+<% if user.blocked == false %>
+  <%# link_to 'Block', admin_user_path(user, value: 'block'), class: 'btn btn-danger', method: :patch, remote: true %>
+  <%= block_unblock(user, 'block', 'danger') %>
+<% else %>
+  <%# link_to 'UnBlock', admin_user_path(user, value: 'unblock'), class: 'btn btn-success', method: :patch, remote: true %>
+  <%= block_unblock(user, 'unblock', 'success') %>
+<% end %>

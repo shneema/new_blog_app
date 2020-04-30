@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_140737) do
+ActiveRecord::Schema.define(version: 2020_04_15_140959) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_04_06_140737) do
     t.string "sub_head15"
     t.string "sub_head16"
     t.string "sub_head17"
+    t.boolean "published", default: false
     t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
@@ -104,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_04_06_140737) do
     t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "role", default: "user"
+    t.boolean "blocked", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

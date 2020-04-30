@@ -1,7 +1,19 @@
-<%= link_to image_tag(comment.user.image, class: 'commentimgwedth') %>
+<% if comment.user.image.present? %>
+  <%= link_to image_tag(comment.user.image, class: 'commentimgwedth'), user_path(comment.user.id) %>
+<% else %>
+  <%= link_to image_tag('user/us.png', class: 'commentimgwedth'), user_path(comment.user.id) %>
+<% end %>  
 <%= comment.user.full_name %><br>
 <%= comment.created_at %><br>
-<div class="well" style="color: blue">
+<span style="color: blue">
   <%= comment.comment %>
-</div>  
+</span>&nbsp;
+<% if current_user.id == comment.user_id %>
+  <%= link_to comment_path(comment.id), method: :delete, remote: true do %>
+    <i class="fa fa-trash" aria-hidden="true"></i>
+  <% end %>&nbsp;
+  <%= link_to edit_comment_path(comment.id), remote: true do %>
+    <i class="fa fa-edit" aria-hidden="true"></i>
+  <% end %> 
+<% end %>
 <br><br>

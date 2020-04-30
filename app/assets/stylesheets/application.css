@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  *= require bootstrap/scss/bootstrap
+ *= require @fortawesome/fontawesome-free
  */
+
  h1{
    color: rgba(143, 59, 59, 0.71); 	
  }

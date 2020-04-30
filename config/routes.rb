@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
 
   resources :comments
 
@@ -8,8 +11,13 @@ Rails.application.routes.draw do
   	  get :dislike
   	end
   end
+
+  namespace :admin do
+    resources :users
+    resources :portfolios, only: %i[index update]
+  end
   
-  resources :users, only: :show
+  resources :users, only: %i[show edit update]
   # root to: 'home#index'
   resources :portfolios
 

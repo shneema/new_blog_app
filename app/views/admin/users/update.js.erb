@@ -1,0 +1,2 @@
+$('table tbody tr td#<%= @user.id %>').html("<%= j render 'admin/users/condition', user: @user %>");
+alert('<%= flash[:message] %>');

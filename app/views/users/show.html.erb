@@ -4,9 +4,9 @@
     <%# link_to root_path do %>
       <!-- <i class="fas fa-angle-left text-primary"></i> -->
     <%# end %>
-    <%# link_to edit_user_registration_path(@user) do %>
-      <!-- <i class="fas fa-edit text-primary" aria-hidden="true"></i> -->
-    <%# end %>
+    <%= link_to edit_user_registration_path(@user) do %>
+      <i class="fas fa-edit text-primary" aria-hidden="true"></i>
+    <% end %>
     <header class="mb-4"><h4 class="card-title">Profile Details</h4></header>
       <p>
         <% if @user.image.present? %>
@@ -16,9 +16,9 @@
         <% end %>
       </p>
 
-        <strong>Name:</strong> <%= @user.full_name.titleize %> <br><br>
+        <i class="fa fa-user" aria-hidden="true"></i>&nbsp; <%= @user.full_name.titleize %> <br><br>
 
-        <strong>Email: </strong> <%= @user.email %><br><br>
+        <i class="fas fa-envelope-square"></i>&nbsp; <%= @user.email %><br><br>
     </article>
   </div>
 </div>

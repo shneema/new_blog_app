@@ -8,7 +8,7 @@
   <h1 class="mt-3 mb-3"><%= @portfolio.heading %></h1>
 
   <p>
-    <%= link_to image_tag(@portfolio.user.image, class: 'commentimgwedth') %>
+    <%= link_to image_tag(@portfolio.user.image, class: 'commentimgwedth'), user_path(@portfolio.user_id) %>
     <%= @portfolio.user.full_name %><br>
     <%= @portfolio.created_at %><br>
   </p>
@@ -260,24 +260,28 @@
       </div>
 
       <hr>
-      <% if @comments.present? %>
-        <h1>Comments</h1>
-        <div class="jumbotron" id="jmb">
-          <%= render partial: 'comments/comment', collection: @comments %>
-        </div>
-      <%# else %>
-        <!-- <div class="well">
-          Not Commented Yet!
-        </div> -->  
-      <% end %>
+      <h1>Comments</h1>
+      <div class="jumbotron" id="jmb">
+        <% if @comments.present? %>
+          <!-- <div id="comm"> -->
+            <%= render partial: 'comments/comment', collection: @comments %>
+          <!-- </div>   -->
+        <% else %>
+          <div id="ncym">
+            Not Commented Yet!
+          </div>
+        <% end %>
+      </div>
 
       <div id="comment_form">
-        <%= link_to 'comment', new_comment_path(portfolio_id: @portfolio.id), remote: true %>
+        <%= link_to new_comment_path(portfolio_id: @portfolio.id), remote: true do %>
+          <i class="fas fa-comment"></i>
+        <% end %>
       </div>
       <div id="lik_dis">
         <%= render 'likes/like_dislike', portfolio: @portfolio %>
-      </div>  
-    </div> 
+      </div>
+    </div>
   </div>
 </div>
 <%# link_to 'Edit', edit_portfolio_path(@portfolio) %> |

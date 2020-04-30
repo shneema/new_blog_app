@@ -1,6 +1,10 @@
 <% if Like.liked_or_not(current_user.id, portfolio.id).exists? %>
-  <%= link_to 'dis_like', dislike_likes_path(portfolio_id: portfolio.id), remote: true %> 
+  <%= link_to dislike_likes_path(portfolio_id: portfolio.id), remote: true do %>
+    <i class="fas fa-thumbs-down"></i>
+  <% end %> 
 <% else %>
-  <%= link_to 'like', likes_path(portfolio_id: portfolio.id), method: :post, remote: true %>
+  <%= link_to likes_path(portfolio_id: portfolio.id), method: :post, remote: true do %>
+    <i class="fas fa-thumbs-up"></i>
+  <% end %>
 <% end %>
 <span id="likecount"><%= @portfolio.likes.size %></span>
