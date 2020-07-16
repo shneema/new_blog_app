@@ -1,0 +1,172 @@
+<div class="container">
+  <h1 class="mt-3 mb-3"><%= portfolio.heading %></h1>
+
+  <p>
+    <%= link_to image_tag(portfolio.user.image, class: 'commentimgwedth'), user_path(portfolio.user_id) %>
+    <%= portfolio.user.full_name %><br>
+    <%= portfolio.created_at %><br>
+    <span><i class="fa fa-eye <%= add_extra_class %>" aria-hidden="true"></i>&nbsp;<%= portfolio.view_counts.count %></span>
+  </p>
+
+  <p>
+    <%= image(0, '1109x500') %>
+  </p>
+  
+  <div class="card">
+    <div class="card-body">
+      <h6 class="text-center"><%= portfolio.sub_heading1 %></h6>
+      <h6 class="text-center"><%= portfolio.sub_heading2 %></h6>
+            
+      <h1><%= portfolio.sub_head1 %></h1>
+
+      <%= jumbotron(portfolio.text1) %>
+      
+      <hr>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <h1><%= portfolio.sub_head2 %></h1>
+        </div>
+        <dir class="col-lg-8">
+          <%= jumbotron(portfolio.text2) %>   
+        </dir>
+      </div>
+
+      <hr>
+      
+      <h1><%= portfolio.sub_head3 %></h1>
+
+      <%= jumbotron(portfolio.text3) %>
+
+      <hr>
+
+      <h1> <%= portfolio.sub_head4 %> </h1>
+
+      <%= jumbotron(portfolio.text4) %>
+
+      <h1> <%= portfolio.sub_head5 %> </h1>
+
+      <%= jumbotron(portfolio.text5) %>
+
+      <h1> <%= portfolio.sub_head6 %> </h1>
+
+      <%= jumbotron(portfolio.text6) %>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <p>
+            <%= image(1, '520x640') %>
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <h1> <%= portfolio.sub_head7 %> </h1>
+          <%= jumbotron(portfolio.text7) %>
+        </div>
+      </div>
+
+      <hr>
+
+      <h1> <%= portfolio.sub_head8 %> </h1>
+
+      <%= jumbotron(portfolio.text8) %>
+
+      <hr>
+
+      <h1><%= portfolio.sub_head9 %></h1>
+      
+      <%= jumbotron(portfolio.text9) %>
+      
+      <h1><%= portfolio.sub_head10 %></h1>
+
+      <%= jumbotron(portfolio.text10) %>
+
+      <h1><%= portfolio.sub_head11 %></h1>
+
+      <%= jumbotron(portfolio.text11) %>
+
+      <hr>
+
+      <h1 class="text-center"> <%= portfolio.video_heading %> </h1><br><br>
+
+      <div class="row">
+        <%= video(portfolio) %>
+      </div>
+
+      <hr>
+
+      <h1 class="text-center"><%= portfolio.image_heading %></h1><br><br>
+
+      <p>
+        <%= image(2, '1069x500') %>
+      </p>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <%= image(3, '500x400') %>
+        </div>
+        <div class="col-lg-6">
+          <h1><%= portfolio.sub_head12 %></h1>
+          <%= jumbotron(portfolio.text12) %>
+        </div>
+
+        <div class="col-lg-6">
+          <%= image(4, '500x420') %>  
+        </div>
+        <div class="col-lg-6">
+          <h1><%= portfolio.sub_head13 %></h1>
+          <%= jumbotron(portfolio.text13) %>
+        </div>
+
+        <div class="col-lg-6">
+          <%= image(5, '500x400') %>
+        </div>
+        <div class="col-lg-6">
+          <h1><%= portfolio.sub_head14 %></h1>
+          <%= jumbotron(portfolio.text14) %>
+        </div>
+
+        <div class="col-lg-6">
+          <%= image(6, '500x420') %>
+        </div>
+        <div class="col-lg-6">
+          <h1><%= portfolio.sub_head15 %></h1>
+          <%= jumbotron(portfolio.text15) %>
+        </div>
+      </div>
+
+      <hr>
+      
+      <h1><%= portfolio.sub_head16 %></h1>
+
+      <%= jumbotron(portfolio.text16) %>
+
+      <h1><%= portfolio.sub_head17 %></h1>
+
+      <%= jumbotron(portfolio.text17) %>
+
+      <hr>
+      <h1>Comments</h1>
+      <div class="jumbotron" id="jmb">
+        <% if comments.present? %>
+          <%= render partial: 'comments/comment', collection: comments %>
+        <% else %>
+          <div id="ncym">
+            Not Commented Yet!
+          </div>
+        <% end %>
+      </div>
+      <% if user_signed_in? %>
+        <div id="comment_form">
+          <%= link_to new_comment_path(portfolio_id: portfolio.id), remote: true do %>
+            <i class="fas fa-comment"></i>
+          <% end %>
+        </div>
+        <div id="lik_dis">
+          <%= render 'likes/like_dislike', portfolio: portfolio %>
+        </div>
+      <% end %>  
+    </div>
+  </div>
+</div>

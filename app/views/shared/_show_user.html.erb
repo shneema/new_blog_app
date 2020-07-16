@@ -1,0 +1,35 @@
+<div class="col-lg-10">
+  <% if alert.present? %>
+    <div class="alert alert-info text-danger">
+      <strong><%= alert %></strong>
+    </div>
+  <% end %>
+  <div class="card mx-auto mt-5 mb-5 w-50">
+    <article class="card-body">
+    <%# link_to root_path do %>
+      <!-- <i class="fas fa-angle-left text-primary"></i> -->
+    <%# end %>
+    <% if current_user.email == user.email %>
+      <%= link_to edit_user_registration_path(user) do %>
+        <i class="fas fa-edit text-primary" aria-hidden="true"></i>
+      <% end %>&nbsp;
+
+      <%= link_to user_registration_path, method: :delete do %>
+        <i class="fas fa-trash text-danger" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
+    <header class="mb-4"><h4 class="card-title">Profile Details</h4></header>
+      <p>
+        <% if user.image.present? %>
+          <%= link_to image_tag(user.image, class: 'imgwedth') %>
+        <% else %>
+          <%= link_to image_tag('user/us.png', class: 'imgwedth') %>
+        <% end %>
+      </p>
+
+      <i class="fa fa-user" aria-hidden="true"></i>&nbsp; <%= user.full_name.titleize %> <br><br>
+
+      <i class="fas fa-envelope-square"></i>&nbsp; <%= user.email %><br><br>
+    </article>
+  </div>
+</div>

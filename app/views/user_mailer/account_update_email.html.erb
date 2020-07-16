@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Dear <%= @user.full_name %> </h1>
+    <% if @args %>
+      <p> Sorry to inform you that Your account <strong> <%= @user.email %> </strong> is temporarily blocked</p>
+    <% else %>
+      <p> Your account <strong> <%= @user.email %> </strong> is unblocked blocked, so now you can login to our webside </p>
+    <% end %>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

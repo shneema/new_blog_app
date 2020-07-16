@@ -13,17 +13,25 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :users
-    resources :portfolios, only: %i[index update]
+    resources :users do
+      collection do
+        get :invite_user
+        get :send_mail
+        get :close_dialog
+      end
+    end
+    resources :portfolios do
+      patch :publish_unpublish_portfolio, on: :member
+    end
   end
   
-  resources :users, only: %i[show edit update]
+  resources :users, only: %i[show destroy]
   # root to: 'home#index'
   resources :portfolios
 
   get 'homes', to: 'home#index'
   
   devise_scope :user do
-    root to: 'devise/sessions#new'
+    root to: 'portfolios#index'
   end
 end

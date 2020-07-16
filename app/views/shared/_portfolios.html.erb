@@ -1,0 +1,58 @@
+<div class="col-lg-10">
+  <% if portfolios.present? %>
+    <div class="card mt-5">
+    <h1 class="text-center">Portfolios</h1>
+    <div class="card-body">
+      <div class="row">
+        <% portfolios.each do |portfolio| %>
+          <% if portfolio.user.present? %>
+            <div class="col-lg-4 mb-3">
+              <div class="card">
+                <% if current_user.email == portfolio.user.email %>
+                  <div class="row">
+                    <div class="col">
+                      <% if current_user.admin? %>
+                        <%= link_to portfolio_path(portfolio), method: :delete do %>
+                          <i class="fas fa-trash text-danger float-right mr-2 mt-2" aria-hidden="true"></i>
+                        <% end %>
+                      <% end %>
+                      <%= link_to edit_portfolio_path(portfolio) do %>
+                        <i class="fas fa-edit text-primary float-right mt-2 mr-2" aria-hidden="true"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+                <div class="card-body">
+                  <% if portfolio.user.image.present? %>
+                    <%= link_to image_tag(portfolio.user.image, class: 'userimg'), user_path(portfolio.user) %><br>
+                  <% else %>
+                    <%= link_to image_tag('user/us.png', class: 'userimg'), user_path(portfolio.user)  %><br> 
+                  <% end %>
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp; <%= portfolio.user.full_name %><br>
+                  <i class="fas fa-envelope-square"></i>&nbsp; <%= portfolio.user.email %><br>
+                  <b>Title :-</b>&nbsp; <%= portfolio.heading %><br><br>
+                  <div class="row">
+                    <div class="col">
+                      <%= link_to 'show', show_path(portfolio), class: 'btn btn-primary' %><br>
+                    </div>
+                    <% if user_signed_in? && current_user.admin? %>
+                      <div id = '<%= "#{portfolio.id}" %>' class="col">
+                        <%= render 'admin/portfolios/condition', portfolio: portfolio %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <span id="pagynav"><%== pagynav %></span>
+    </div>
+  <% else %>
+  <div class="alert text-center text-danger alert-info">
+    Opps! Currently no article is available
+  </div>
+  <% end %>  
+</div>

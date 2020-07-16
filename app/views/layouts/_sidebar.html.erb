@@ -1,11 +1,7 @@
 <div class="wrapper">
   <nav id="sidebar">
       <div class="sidebar-header">
-        <% if current_user.admin? %>
-          <h3>Admin Sidebar</h3>
-        <% else %>
-          <h3>User Sidebar</h3> 
-        <% end %>
+        <h3>Sidebar</h3>
       </div>
 
       <ul class="list-unstyled components">
@@ -24,7 +20,7 @@
                   </li>
               </ul>
           </li>
-          <% if current_user.admin? %>
+          <% if user_signed_in? && current_user.admin? %>
             <li>
                 <%= link_to 'Portfolios', admin_portfolios_path %>
             </li>

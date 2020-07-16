@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Dear <%= @user.full_name %> </h1>
+    <b>Email :- </b><span> <%= @user.email %> </span>
+    <% if @args %>
+      <p> Congratulations your article has been successfully published </p>
+    <% else %>
+      <p> Sorry to inform you that your article is temporarily unpublished </p>
+    <% end %>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

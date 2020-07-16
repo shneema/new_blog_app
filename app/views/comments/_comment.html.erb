@@ -8,12 +8,14 @@
 <span style="color: blue">
   <%= comment.comment %>
 </span>&nbsp;
-<% if current_user.id == comment.user_id %>
-  <%= link_to comment_path(comment.id), method: :delete, remote: true do %>
-    <i class="fa fa-trash" aria-hidden="true"></i>
-  <% end %>&nbsp;
-  <%= link_to edit_comment_path(comment.id), remote: true do %>
-    <i class="fa fa-edit" aria-hidden="true"></i>
-  <% end %> 
+<% if user_signed_in? %>
+	<% if current_user.id == comment.user_id or current_user.admin? %>
+	  <%= link_to comment_path(comment.id), method: :delete, remote: true do %>
+	    <i class="fa fa-trash" aria-hidden="true"></i>
+	  <% end %>&nbsp;
+	  <%= link_to edit_comment_path(comment.id), remote: true do %>
+	    <i class="fa fa-edit" aria-hidden="true"></i>
+	  <% end %>
+	<% end %>
 <% end %>
 <br><br>

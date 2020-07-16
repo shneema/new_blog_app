@@ -1,0 +1,7 @@
+<% if portfolio.videos.present? %>
+  <% portfolio.videos.each do |video| %>
+    <div class="col-lg-6">
+      <%= video_tag(url_for(video), style: 'width:100%; height: auto', controls: '') %>
+    </div>  
+  <% end %>
+<% end %>

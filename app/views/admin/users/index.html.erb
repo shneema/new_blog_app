@@ -1,30 +1,37 @@
 <div class="col-lg-10">
-	<h1>Users</h1>
-	<div class="card">
-		<article class="card-body">
-		  <%# link_to 'Add Portfolio', new_portfolio_path, class: 'btn btn-primary float-right mb-2' %>
-		  <table class="table table-hover">
-		    <thead>
-		    	<tr>
-		    	  <th>Image</th>
-		    	  <th>Name</th>
-		    	  <th>Email</th>
-		    	  <th colspan="1">Options</th>
-		    	</tr>
-		    </thead>
-		    <tbody>
-		    	<% @users.each do |user| %>
-		    	  <tr>
-		    	  	<td class="w-25"><%= link_to image_tag(user.image, class: 'w-25') %></td>
-		    	  	<td><%= user.full_name %></td>
-		    	  	<td><%= user.email %></td>
-		    	  	<td id= '<%= "#{user.id}" %>'>
-		    	  		<%= render 'admin/users/condition', user: user %>
-		    	  	</td>
-		    	  </tr>
-		    	<% end %>
-		    </tbody>
-		  </table>	
-		</article>
-	</div>
+  <div id="abc123">
+    <%= link_to 'Invite User', invite_user_admin_users_path, class: 'btn btn-primary float-right mt-2', remote: true %>
+  </div><br><br>
+  <% if @users.present? %>
+    <div class="card">
+      <h1 class="text-center">Users</h1>
+    	<div class="card-body">
+    		<div class="row">
+    			<% @users.each do |user| %>
+    			  <div class="col-lg-4 mb-3">
+    			  	<div class="card">
+    			  		<div class="card-body">
+    			  			<% if user.image.present? %>
+    			  				<%= link_to image_tag(user.image, class: 'userimg'), user_path(user) %><br>
+    			  			<% else %>
+    			  				<%= link_to image_tag('user/us.png', class: 'userimg'), user_path(user)  %><br>	
+    			  			<% end %>
+    			  			<i class="fa fa-user" aria-hidden="true"></i>&nbsp; <%= user.full_name %><br>
+    			  			<i class="fas fa-envelope-square"></i>&nbsp; <%= user.email %><br>
+    			  			<div id = '<%= "#{user.id}" %>'>
+    			  				<%= render 'admin/users/condition', user: user %>
+    			  			</div>
+    			  		</div>
+    			  	</div>
+    			  </div>
+    			<% end %>
+    		</div>
+    	</div>
+      <span id="pagynav"><%== pagynav %></span>
+    </div>
+  <% else %>
+    <div class="alert text-center alert-info text-danger">
+      Opps! no user registered yet
+    </div>  
+  <% end %>	
 </div>

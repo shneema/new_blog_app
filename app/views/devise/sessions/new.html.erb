@@ -1,4 +1,9 @@
 <div class="card w-25 mx-auto", style="margin-top: 200px;">
+<%# if message.present? %>
+  <!-- <div class="alert alert-info text-danger">
+    <strong><%# message %></strong>
+  </div> -->
+<%# end %>
   <article class="card-body">
     <header class="mb-4"><h4 class="card-title">Log In</h4></header>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

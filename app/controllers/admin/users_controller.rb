@@ -1,7 +1,18 @@
 module Admin
 	class UsersController < AdminController
+		include Userable
+		
 		def index
-			@users = User.unscoped.where(role: 'user')
+			@pagy, @users = pagy(User.unscoped.where(role: 'user'), items: 5)
+		end
+
+		def invite_user; end
+
+    def close_dialog; end
+
+		def send_mail
+		  User.invite!(email: params[:anything][:email])
+		  redirect_to admin_users_path
 		end
 
 		def update
@@ -16,6 +27,7 @@ module Admin
 
 			respond_to do |format|
 				if @user.update(blocked: args)
+					UserMailer.with(user: @user, args: args, subject: 'Account Updates').account_update_email.deliver_now
 					flash[:message] = "Successfully #{message}"
 					format.js
 				end

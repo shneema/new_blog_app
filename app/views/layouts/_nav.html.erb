@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-  <% unless request.path.include? "/portfolios" %>
+  <% unless path_include?("/portfolios") %>
     <button type="button" id="sidebarCollapse" class="btn btn-info">
       <!-- <i class="fas fa-align-left"></i> -->
       <span>Toggle Sidebar</span>
@@ -38,25 +38,33 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>&nbsp; &nbsp;
-    <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle pr-5" type="button" data-toggle="dropdown"><%= current_user.full_name %>
+    <div class="dropdown mr-5">
+      <button class="btn btn-primary dropdown-toggle pr-5" type="button" data-toggle="dropdown">
+        <%= user_signed_in? ? current_user.full_name : 'Options' %> 
       <span class="caret"></span></button>
       <ul class="dropdown-menu">
-        <li>
-          <% if user_signed_in? %> 
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-          <% else %>
+        <% if user_signed_in? %> 
+          <li>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          </li>
+          <li>
+              <%= link_to "View Profile", user_profile_path, class: 'dropdown-item' %>
+          </li>
+          <li>
+            <%= link_to 'Add Portfolio', add_portfolio_path, class: 'dropdown-item' %>
+          </li>    
+        <% else %>
+          <li>
             <%= link_to "login", new_user_session_path, class: 'dropdown-item' %>
-          <% end %>
-        </li>
-        <li><%= link_to "View Profile", user_path(current_user.id), class: 'dropdown-item' %></li>
+          </li>
+        <% end %>
         <!-- <li><a class="dropdown-item" href="#">CSS</a></li> -->
         <!-- <li><a class="dropdown-item" href="#">JavaScript</a></li> -->
       </ul>
     </div>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
   </div>
 </nav>

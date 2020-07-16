@@ -1,224 +1,122 @@
-<div class="card w-25 mx-auto mt-5">
+<div class="card w-75 mx-auto mt-5">
   <div class="card-body">
-    <header class="mb-4"><h4 class="card-title">New Portfolio</h4></header>
+    <header class="mb-4"><h4 class="card-title text-center">New Portfolio</h4></header>
     <%= form_with(model: portfolio, local: true) do |form| %>
-      <% if portfolio.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
+      <%= render "shared/error", portfolio: portfolio %>
+     
+    <div class="row">
+      <%= render "shared/heading_field", field: :heading, form: form %>
 
-          <ul>
-            <% portfolio.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <div class="field form-group">
-        <%= form.label :heading %>
-        <%= form.text_field :heading, class: 'form-control' %><br>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :images %>
-        <%= form.file_field :images, multiple: true, class: 'form-control' %>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :videos %>
-        <%= form.file_field :videos, multiple: true, class: 'form-control' %>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :sub_head1 %>
-        <%= form.text_field :sub_head1, class: 'form-control' %><br>
-      </div>
+      <%= render "shared/heading_field", field: :sub_heading1, form: form %>
       
-      <div class="field form-group">
-        <%= form.label :text1 %>
-        <%= form.text_field :text1, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
+      <%= render "shared/heading_field", field: :sub_heading2, form: form %>
+    </div>
 
-      <div class="field form-group">
-        <%= form.label :sub_head2 %>
-        <%= form.text_field :sub_head2, class: 'form-control' %><br>
-      </div>
+    <div class="row">
+      <%= render "shared/heading_field", field: :image_heading, form: form %>
+      
+      <%= render "shared/file_field", field: :images, form: form %>
 
-      <div class="field form-group">
-        <%= form.label :text2 %>
-        <%= form.text_field :text2, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
+      <%= render "shared/heading_field", field: :video_heading, form: form %> 
+    </div>
+    
+    <div class="row">
+      <%= render "shared/file_field", field: :videos, form: form %>
 
-      <div class="field form-group">
-        <%= form.label :sub_head3 %>
-        <%= form.text_field :sub_head3, class: 'form-control' %><br>
-      </div>
+      <%= render "shared/heading_field", field: :sub_head1, form: form %>
+      
+      <%= render "shared/text_field", field: :text1, form: form %>
+    </div>    
+    
+    <div class="row">
+      <%= render "shared/heading_field", field: :sub_head2, form: form %>
+      
+      <%= render "shared/text_field", field: :text2, form: form %>  
+      
+      <%= render "shared/heading_field", field: :sub_head3, form: form %>
+    </div>
 
-      <div class="field form-group">
-        <%= form.label :text3 %>
-        <%= form.text_field :text3, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
+    <div class="row">
+      <%= render "shared/text_field", field: :text3, form: form %>
+      
+      <%= render "shared/heading_field", field: :sub_head4, form: form %>
+      
+      <%= render "shared/text_field", field: :text4, form: form %>
+    </div>
 
-      <div class="field form-group">
-        <%= form.label :sub_head4 %>
-        <%= form.text_field :sub_head4, class: 'form-control' %><br>
-      </div>
+    <div class="row">
+      <%= render "shared/heading_field", field: :sub_head5, form: form %>
+      
+      <%= render "shared/text_field", field: :text5, form: form %>
 
-      <div class="field form-group">
-        <%= form.label :text4 %>
-        <%= form.text_field :text4, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
+      <%= render "shared/heading_field", field: :sub_head6, form: form %>
+    </div>  
+    
+    <div class="row">
+      <%= render "shared/text_field", field: :text6, form: form %>
 
-      <div class="field form-group">
-        <%= form.label :sub_head5 %>
-        <%= form.text_field :sub_head5, class: 'form-control' %><br>
-      </div>
+      <%= render "shared/heading_field", field: :sub_head7, form: form %>
+      
+      <%= render "shared/text_field", field: :text7, form: form %>
+    </div>
 
-      <div class="field form-group">
-        <%= form.label :text5 %>
-        <%= form.text_field :text5, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
+    <div class="row">
+      <%= render "shared/heading_field", field: :sub_head8, form: form %>
+      
+      <%= render "shared/text_field", field: :text8, form: form %>
+      
+      <%= render "shared/heading_field", field: :sub_head9, form: form %>
+    </div>
 
-      <div class="field form-group">
-        <%= form.label :sub_head6 %>
-        <%= form.text_field :sub_head6, class: 'form-control' %><br>
-      </div>
+    <div class="row">
+      <%= render "shared/text_field", field: :text9, form: form %>
+      
+      <%= render "shared/heading_field", field: :sub_head10, form: form %>
 
-      <div class="field form-group">
-        <%= form.label :text6 %>
-        <%= form.text_field :text6, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
+      <%= render "shared/text_field", field: :text10, form: form %>
+    </div>
 
-      <div class="field form-group">
-        <%= form.label :sub_head7 %>
-        <%= form.text_field :sub_head7, class: 'form-control' %><br>
-      </div>
+    <div class="row">
+      <%= render "shared/heading_field", field: :sub_head11, form: form %>
+      
+      <%= render "shared/text_field", field: :text11, form: form %>
 
-      <div class="field form-group">
-        <%= form.label :text7 %>
-        <%= form.text_field :text7, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
+      <%= render "shared/heading_field", field: :sub_head12, form: form %>
+    </div>
 
-      <div class="field form-group">
-        <%= form.label :sub_head8 %>
-        <%= form.text_field :sub_head8, class: 'form-control' %><br>
-      </div>
+    <div class="row">
+      <%= render "shared/text_field", field: :text12, form: form %>
+      
+      <%= render "shared/heading_field", field: :sub_head13, form: form %>
+      
+      <%= render "shared/text_field", field: :text13, form: form %>
+    </div>
 
-      <div class="field form-group">
-        <%= form.label :text8 %>
-        <%= form.text_field :text8, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
+    <div class="row">
+      <%= render "shared/heading_field", field: :sub_head14, form: form %>
+      
+      <%= render "shared/text_field", field: :text14, form: form %>  
+      
+      <%= render "shared/heading_field", field: :sub_head15, form: form %>
+    </div>
 
-      <div class="field form-group">
-        <%= form.label :sub_head9 %>
-        <%= form.text_field :sub_head9, class: 'form-control' %><br>
-      </div>
+    <div class="row">
+      <%= render "shared/text_field", field: :text15, form: form %>
+      
+      <%= render "shared/heading_field", field: :sub_head16, form: form %>
+      
+      <%= render "shared/text_field", field: :text16, form: form %>
+    </div>
 
-      <div class="field form-group">
-        <%= form.label :text9 %>
-        <%= form.text_field :text9, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
+    <div class="row">
+      <%= render "shared/heading_field", field: :sub_head17, form: form %>
+      
+      <%= render "shared/text_field", field: :text17, form: form %>
+    </div>  
 
-      <div class="field form-group">
-        <%= form.label :sub_head10 %>
-        <%= form.text_field :sub_head10, class: 'form-control' %><br>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :text10 %>
-        <%= form.text_field :text10, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :sub_head11 %>
-        <%= form.text_field :sub_head11, class: 'form-control' %><br>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :text11 %>
-        <%= form.text_field :text11, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :sub_head12 %>
-        <%= form.text_field :sub_head12, class: 'form-control' %><br>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :text12 %>
-        <%= form.text_field :text12, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :sub_head13 %>
-        <%= form.text_field :sub_head13, class: 'form-control' %><br>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :text13 %>
-        <%= form.text_field :text13, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :sub_head14 %>
-        <%= form.text_field :sub_head14, class: 'form-control' %><br>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :text14 %>
-        <%= form.text_field :text14, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :sub_head15 %>
-        <%= form.text_field :sub_head15, class: 'form-control' %><br>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :text15 %>
-        <%= form.text_field :text15, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :sub_head16 %>
-        <%= form.text_field :sub_head16, class: 'form-control' %><br>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :text16 %>
-        <%= form.text_field :text16, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :sub_head17 %>
-        <%= form.text_field :sub_head17, class: 'form-control' %><br>
-      </div>
-
-      <div class="field form-group">
-        <%= form.label :text17 %>
-        <%= form.text_field :text17, class: 'form-control' %><br>
-        <span>Please add $ at the end of line $ considered as end of line</span>
-      </div>  
-
-      <div class="actions form-group">
-        <%= form.submit 'Submit', class: 'btn btn-primary' %>
-      </div>
+    <div class="actions form-group">
+      <%= form.submit 'Submit', class: 'btn btn-primary float-right' %>
+    </div>
     <% end %>
   </div>
 </div>

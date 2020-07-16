@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_140959) do
+ActiveRecord::Schema.define(version: 2020_07_15_160046) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -92,6 +92,10 @@ ActiveRecord::Schema.define(version: 2020_04_15_140959) do
     t.string "sub_head16"
     t.string "sub_head17"
     t.boolean "published", default: false
+    t.string "sub_heading1"
+    t.string "sub_heading2"
+    t.string "video_heading"
+    t.string "image_heading"
     t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
@@ -107,8 +111,35 @@ ActiveRecord::Schema.define(version: 2020_04_15_140959) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "role", default: "user"
     t.boolean "blocked", default: false
+    t.boolean "deleted", default: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.string "invitation_token"
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer "invitation_limit"
+    t.string "invited_by_type"
+    t.integer "invited_by_id"
+    t.integer "invitations_count", default: 0
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
+    t.index ["invitations_count"], name: "index_users_on_invitations_count"
+    t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
+    t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by_type_and_invited_by_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "view_counts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "portfolio_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["portfolio_id"], name: "index_view_counts_on_portfolio_id"
+    t.index ["user_id"], name: "index_view_counts_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -117,4 +148,6 @@ ActiveRecord::Schema.define(version: 2020_04_15_140959) do
   add_foreign_key "likes", "portfolios"
   add_foreign_key "likes", "users"
   add_foreign_key "portfolios", "users"
+  add_foreign_key "view_counts", "portfolios"
+  add_foreign_key "view_counts", "users"
 end
