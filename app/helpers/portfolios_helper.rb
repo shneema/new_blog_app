@@ -16,6 +16,10 @@ module PortfoliosHelper
   end
 
   def show_path(portfolio)
-    current_user.admin? ? admin_portfolio_path(portfolio) : portfolio_path(portfolio)
+    if user_signed_in?
+      admin_portfolio_path(portfolio) if current_user.admin? 
+    else
+      portfolio_path(portfolio)
+    end 
   end
 end
